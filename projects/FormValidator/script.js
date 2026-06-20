@@ -73,7 +73,40 @@ const validateEmail = () => {
   return true;
 };
 
-const validateMessage = () => {};
+const validateMessage = () => {
+  let message = contactMessage.value;
+  let requiredCharacters = 30;
+  let left = requiredCharacters - message.length;
+
+  if (left > 0) {
+    messageError.innerHTML = `${left} more characters required`;
+    return false;
+  }
+
+  messageError.innerHTML = '<i class="fas fa-check-circle"></i>';
+  return true;
+};
+
+const validateForm = () => {
+  const nameValid = validateName();
+  const phoneValid = validatePhone();
+  const emailValid = validateEmail();
+  const messageValid = validateMessage();
+
+  const isValid = nameValid && phoneValid && emailValid && messageValid;
+
+  if (!isValid) {
+    submitError.style.display = "block";
+    submitError.innerHTML = "Please fix errors before submitting";
+    setTimeout(function () {
+      submitError.style.display = "none";
+    }, 3000);
+    return false;
+  }
+
+  submitError.innerHTML = "";
+  return true;
+};
 
 contactName.addEventListener("keyup", validateName);
 
@@ -82,3 +115,8 @@ contactNumber.addEventListener("keyup", validatePhone);
 contactEmail.addEventListener("keyup", validateEmail);
 
 contactMessage.addEventListener("keyup", validateMessage);
+
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  validateForm();
+});
