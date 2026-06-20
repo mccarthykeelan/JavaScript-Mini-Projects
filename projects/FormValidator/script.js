@@ -32,7 +32,27 @@ const validateName = () => {
   return true;
 };
 
-const validatePhone = () => {};
+const validatePhone = () => {
+  let phone = contactNumber.value;
+
+  if (phone.length == 0) {
+    phoneError.innerHTML = "Phone no is required";
+    return false;
+  }
+
+  if (phone.length != 10) {
+    phoneError.innerHTML = "Phone no should be 10 digits";
+    return false;
+  }
+
+  if (!phone.match(/^[0-9]{10}$/)) {
+    phoneError.innerHTML = "Only digits please.";
+    return false;
+  }
+
+  phoneError.innerHTML = '<i class="fas fa-check-circle"></i>';
+  return true;
+};
 
 const validateEmail = () => {};
 
