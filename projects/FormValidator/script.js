@@ -54,7 +54,24 @@ const validatePhone = () => {
   return true;
 };
 
-const validateEmail = () => {};
+const validateEmail = () => {
+  const email = contactEmail.value.trim();
+
+  if (!email) {
+    emailError.innerHTML = "Email is required";
+    return false;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  if (!emailPattern.test(email)) {
+    emailError.innerHTML = "Email invalid";
+    return false;
+  }
+
+  emailError.innerHTML = '<i class="fas fa-check-circle"></i>';
+  return true;
+};
 
 const validateMessage = () => {};
 
