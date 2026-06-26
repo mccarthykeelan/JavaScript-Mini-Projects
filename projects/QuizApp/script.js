@@ -86,3 +86,10 @@ const questions = [
     ],
   },
 ];
+
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementsById("answer-buttons");
+const nextButton = document.getElementsById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
