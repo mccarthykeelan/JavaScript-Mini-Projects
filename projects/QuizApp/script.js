@@ -105,9 +105,9 @@ const selectAnswer = function (e) {
   const selectBtn = e.target;
   const isCorrect = selectBtn.dataset.correct === "true";
   if (isCorrect) {
-    selectedBtn.classList.add("correct");
+    selectBtn.classList.add("correct");
   } else {
-    selectedBtn.classList.add("incorrect");
+    selectBtn.classList.add("incorrect");
   }
 
   Array.from(answerButtons.children).forEach((button) => {
