@@ -57,10 +57,16 @@
   border-radius: 10px;
 }
 
-.input-box img {
+.delete {
   width: 25px;
   position: absolute;
   bottom: 15px;
   right: 15px;
   cursor: pointer;
+}
+
+.note {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
 }
